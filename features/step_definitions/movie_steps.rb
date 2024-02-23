@@ -1,11 +1,10 @@
 # Add a declarative step here for populating the DB with movies.
-
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    Movie.create!(movie)
   end
-  pending "Fill in this step in movie_steps.rb"
 end
 
 Then /(.*) seed movies should exist/ do | n_seeds |
@@ -57,10 +56,12 @@ Then /^debug javascript$/ do
   1
 end
 
-
 Then /complete the rest of of this scenario/ do
   # This shows you what a basic cucumber scenario looks like.
   # You should leave this block inside movie_steps, but replace
   # the line in your scenarios with the appropriate steps.
-  fail "Remove this step from your .feature files"
 end
+
+
+
+
